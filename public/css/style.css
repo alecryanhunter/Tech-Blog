@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: beige;
+}
+
+header {
+    background-color: darkgreen;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+}
+
+header h1 {
+    margin: 20px;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+}
+
+header nav a {
+    margin: auto 20px; 
+}
+
+main {
+    background-color: gold;
+    width: 70vw;
+    margin: 1% auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
