@@ -1,1 +1,12 @@
 {{!-- has other's blog posts --}}
+<ul>
+    {{#each posts as |post|}}
+        <li data-id={{post.id}}>
+            <section>
+                <h2>{{post.title}}</h2>
+                <p>{{post.User.name}}</p>
+            </section>                
+            <p>{{post.body}}</p>
+        </li>
+    {{/each}}
+</ul>

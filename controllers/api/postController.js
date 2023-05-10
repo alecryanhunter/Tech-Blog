@@ -3,7 +3,11 @@ const { User, Post, Comment } = require("../../models");
 
 // GET ROUTE - ALL
 router.get("/",(req,res)=>{
-    Post.findAll()
+    Post.findAll({
+        include: {
+            model: User
+        }
+    })
     .then(Posts=>{
         res.json(Posts);
     })
@@ -15,7 +19,11 @@ router.get("/",(req,res)=>{
 
 // GET ROUTE - SINGULAR BY ID
 router.get("/:id",(req,res)=>{
-    Post.findByPk(req.params.id)
+    Post.findByPk(req.params.id,{
+        include: {
+            model: User
+        }
+    })
     .then(Post=>{
         res.json(Post);
     })

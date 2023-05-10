@@ -29,7 +29,7 @@ header nav a {
 }
 
 main {
-    background-color: gold;
+    /* background-color: gold; */
     width: 70vw;
     margin: 1% auto;
 }
@@ -37,4 +37,31 @@ main {
 form {
     display: flex;
     flex-direction: column;
+}
+
+/** 
+* HOME PAGE STYLING
+*/
+
+li {
+    list-style: none;
+    border: 5px solid green;
+    margin: 10px;
+    background-color: gold;
+}
+
+li section {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px;
+    color: white;
+    background-color: green;
+}
+
+li section p {
+    font-style: italic;
+}
+
+li p {
+    padding: 3px;
 }
