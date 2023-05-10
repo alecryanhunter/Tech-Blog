@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { User, Post, Comment } = require("../models");
 
 router.get("/home",(req,res)=>{
     res.send("home page");
@@ -15,6 +16,5 @@ router.get("/login",(req,res)=>{
 router.get("/signup",(req,res)=>{
     res.send("signup");
 })
-
 
 module.exports = router
