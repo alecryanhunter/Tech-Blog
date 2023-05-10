@@ -16,12 +16,12 @@ router.get("/home",(req,res)=>{
 
 // DASHBOARD
 router.get("/dashboard",(req,res)=>{
-    res.send("dashboard");
+    res.render("dashboard");
 })
 
 // LOGIN
 router.get("/login",(req,res)=>{
-    res.send("login");
+    res.render("login");
 })
 
 // SIGNUP
