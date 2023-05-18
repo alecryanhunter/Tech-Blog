@@ -17,16 +17,23 @@ router.get("/home",(req,res)=>{
 // DASHBOARD
 router.get("/dashboard",(req,res)=>{
     res.render("dashboard");
-})
+});
 
 // LOGIN
 router.get("/login",(req,res)=>{
     res.render("login");
-})
+});
 
 // SIGNUP
 router.get("/signup",(req,res)=>{
     res.render("signup");
-})
+});
+
+// POST
+router.get("/post/:id",(req,res)=>{
+    console.log(req.params.id);
+    Post.findByPk(req.params.id)
+    res.render("post")
+});
 
 module.exports = router;
