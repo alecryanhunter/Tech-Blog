@@ -7,8 +7,8 @@ login.addEventListener("submit",loginHandler);
 async function loginHandler(event) {
     event.preventDefault();
 
-    const loginUsername = login.children[1].value
-    const loginPassword = login.children[3].value
+    const loginUsername = login.children[1].value.trim()
+    const loginPassword = login.children[3].value.trim()
 
 
     if (loginUsername && loginPassword) {
@@ -16,13 +16,13 @@ async function loginHandler(event) {
         await fetch("/api/users/login",{
             method: "POST",
             body: JSON.stringify({
-                username: loginUsername,
+                name: loginUsername,
                 password: loginPassword
             }),
             headers: {
                 "Content-Type": "application/json"
             }
-        })
+        })       
 
     } else {
         // If the username and password fields are not filled out

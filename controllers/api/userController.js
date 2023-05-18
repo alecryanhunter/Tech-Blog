@@ -44,23 +44,23 @@ router.post("/",(req,res)=>{
 })
 
 // POST ROUTE - LOGIN
-router.post("/login",async (req,res)=>{
+router.post("/login",async(req,res)=>{
     try {
-        const user = User.findOne({
+        const user = await User.findOne({
             where: {
-                name: req.body.username
+                name: req.body.name
             }
         })
         
         // Checks if there is a user by that username
         if(!user){
-            return res.json({msg:"error occured",code: 4444});
+            return res.status(400).json({msg:"incorrect username or password"});
         }
         
         // Checks for validity of password
         const validPass = await user.checkPassword(req.body.password);
         if(!validPass){
-            return res.json({msg:"error occured",code: 4555});
+            return res.status(400).json({msg:"incorrect username or password"});
         }
 
         req.session.save(()=>{
@@ -69,12 +69,10 @@ router.post("/login",async (req,res)=>{
 
             res.json({msg:"logged in!",user})
         })
+
     } catch (err) {
-        res.json({msg:"error occured",err})
+        res.status(400).json({msg:"error occured",err})
     }
-
-
-
 })
 
 // DELETE ROUTE
