@@ -1,27 +1,33 @@
 const signup = document.querySelector("#signup");
 
-signup.addEventListener("submit", async function(event) {
-    const name = document.querySelector("#username").value;
-    const password = document.querySelector("#password").value;
+// Wrapped in an if so it's not used if signup is null
+if (signup) {
 
-    console.log(name)
-    console.log(password)
+    // Signup event listener
+    signup.addEventListener("submit", async function(event) {
+        const name = document.querySelector("#username").value;
+        const password = document.querySelector("#password").value;
 
-    event.preventDefault();
-    await fetch("/api/users/",{
-        method: "POST",
-        body: JSON.stringify({
-            name: name,
-            password: password
-        }),
-        headers: {
-            "Content-Type": "application/json"
+        console.log(name)
+        console.log(password)
+
+        event.preventDefault();
+        const response = await fetch("/api/users/",{
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                password: password
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if(response.ok) {
+            console.log("OK");
+        } else {
+            console.log("NOT OK");
         }
     });
 
-    if(response.ok) {
-        console.log("OK");
-    } else {
-        console.log("NOT OK");
-    }
-})
+};

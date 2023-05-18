@@ -2,13 +2,13 @@
 <ul>
     {{#each posts as |post|}}
         <a href="/post/{{post.id}}">
-        <li data-id={{post.id}}>
-            <section>
-                <h2>{{post.title}}</h2>
-                <p>{{post.User.name}}</p>
-            </section>                
-            <p>{{post.body}}</p>
-        </li>
+            <li>
+                <section>
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.User.name}}</p>
+                </section>                
+                <p>{{post.body}}</p>
+            </li>
         </a>
     {{/each}}
 </ul>
