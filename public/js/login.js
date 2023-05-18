@@ -25,7 +25,6 @@ async function loginHandler(event) {
         });
 
         if (loginResponse.ok){
-            location.reload()
             window.location.href = "/dashboard"
         }
 

@@ -16,6 +16,10 @@ router.get("/home",(req,res)=>{
 
 // DASHBOARD
 router.get("/dashboard",(req,res)=>{
+    // Redirects user to login if they aren't logged in
+    if (!req.session.logged_in){
+        res.redirect("/login")
+    }
     res.render("dashboard",{cookie: req.session});
 });
 

@@ -2,7 +2,9 @@ console.log("Post Script Loaded...");
 
 const comForm = document.querySelector("#newComment");
 
-comForm.addEventListener("submit",comFormHandler);
+if (comForm){
+    comForm.addEventListener("submit",comFormHandler);
+}
 
 async function comFormHandler(event) {
     event.preventDefault();

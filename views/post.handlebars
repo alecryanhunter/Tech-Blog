@@ -19,9 +19,11 @@
     {{/each}}
 </ul>
 
+{{#if cookie.logged_in}}
 <form id="newComment">
     <input type="text">
     <button type="submit">New Comment</button>
 </form>
+{{/if}}
 
 <script src="/js/post.js"></script>
