@@ -39,7 +39,8 @@ router.get("/post/:id",(req,res)=>{
         },User],
         required: true
     })
-    .then(post=>{
+    .then(gotPost=>{
+        const post = gotPost.get({plain:true})
         res.render("post",{post: post, cookie: req.session})
     })
 });
