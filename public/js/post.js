@@ -12,15 +12,22 @@ async function comFormHandler(event) {
     // Grabs id from the URL, parsing int in case of queries
     const postId = parseInt(window.location.href.split("/").pop())
 
-    const response = await fetch("/api/comments",{
-        method: "POST",
-        body: JSON.stringify({
-            body: comment,
-            post_id: postId,
-            user_id: 
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
+    await fetch("/sessiondata")
+    .then(res => { return res.json() })
+    .then(cookie=>{
+        // MUST USE COOKIE HERE
+        console.log(cookie);
     })
+
+    // await fetch("/api/comments",{
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //         body: comment,
+    //         post_id: postId,
+    //         user_id: 
+    //     }),
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     }
+    // })
 }

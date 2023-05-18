@@ -80,3 +80,25 @@ textarea {
 .comments {
     padding: 0 3%;
 }
+
+.alert.error {
+    animation: .1s shake linear;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-3px);
+    }
+    20% {
+        transform: translateX(0px);
+    }
+    60% {
+        transform: translateX(3px);
+    }
+    80% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(-3px);
+    }
+}
