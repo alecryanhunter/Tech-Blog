@@ -10,23 +10,23 @@ router.get("/home",(req,res)=>{
     })
     .then(allPosts=>{
         const posts = allPosts.map(post=>post.get({plain:true}))
-        res.render("home",{posts})
+        res.render("home",{ posts: posts, cookie: req.session})
     })
 })
 
 // DASHBOARD
 router.get("/dashboard",(req,res)=>{
-    res.render("dashboard");
+    res.render("dashboard",{cookie: req.session});
 });
 
 // LOGIN
 router.get("/login",(req,res)=>{
-    res.render("login");
+    res.render("login",{cookie: req.session});
 });
 
 // SIGNUP
 router.get("/signup",(req,res)=>{
-    res.render("signup");
+    res.render("signup",{cookie: req.session});
 });
 
 // POST
@@ -39,9 +39,8 @@ router.get("/post/:id",(req,res)=>{
         },User],
         required: true
     })
-    .then(idPost=>{
-        const post = idPost.get({plain:true})
-        res.render("post",post)
+    .then(post=>{
+        res.render("post",{post: post, cookie: req.session})
     })
 });
 

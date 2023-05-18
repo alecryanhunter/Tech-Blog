@@ -1,5 +1,3 @@
-console.log("Login Script Loaded...");
-
 const login = document.querySelector("#login");
 
 login.addEventListener("submit",loginHandler);
@@ -7,13 +5,15 @@ login.addEventListener("submit",loginHandler);
 async function loginHandler(event) {
     event.preventDefault();
 
+    // Grabs and trims the input values
     const loginUsername = login.children[1].value.trim()
     const loginPassword = login.children[3].value.trim()
 
 
     if (loginUsername && loginPassword) {
 
-        await fetch("/api/users/login",{
+        // POSTs the login data
+        const loginResponse = await fetch("/api/users/login",{
             method: "POST",
             body: JSON.stringify({
                 name: loginUsername,
@@ -22,7 +22,14 @@ async function loginHandler(event) {
             headers: {
                 "Content-Type": "application/json"
             }
-        })       
+        });
+
+        if (loginResponse.ok){
+            location.reload()
+            window.location.href = "/dashboard"
+        }
+
+        // TODO: Add error catching on this fetch
 
     } else {
         // If the username and password fields are not filled out
