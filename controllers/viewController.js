@@ -41,7 +41,6 @@ router.get("/post/:id",(req,res)=>{
     })
     .then(idPost=>{
         const post = idPost.get({plain:true})
-        console.log(post)
         res.render("post",post)
     })
 });
