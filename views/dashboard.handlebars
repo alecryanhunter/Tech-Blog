@@ -10,12 +10,16 @@
                 <p>{{post.body}}</p>
             </li>
         </a>
+        {{!-- <button id="post-edit">Edit</button>
+        <button id="post-delete">Delete</button> --}}
     {{/each}}
 </ul>
 
 {{!-- Form for adding new posts --}}
-<form action="">
+<form id="new-post">
     <input type="text">
     <textarea name="" id="" cols="30" rows="5"></textarea>
     <button type="submit">Add Post</button>
 </form>
+
+<script src="/js/dashboard.js"></script>

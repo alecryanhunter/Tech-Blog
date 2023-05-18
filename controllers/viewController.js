@@ -20,7 +20,16 @@ router.get("/dashboard",(req,res)=>{
     if (!req.session.logged_in){
         res.redirect("/login")
     }
-    res.render("dashboard",{cookie: req.session});
+    Post.findAll({
+        where: {
+            UserId: req.session.user_id
+        },
+        include: User
+    })
+    .then(ownPosts=>{
+        const posts = ownPosts.map(post=>post.get({plain:true}))
+        res.render("dashboard",{posts: posts, cookie: req.session});
+    })
 });
 
 // LOGIN

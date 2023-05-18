@@ -1,6 +1,6 @@
 console.log("Post Script Loaded...");
 
-const comForm = document.querySelector("#newComment");
+const comForm = document.querySelector("#new-comment");
 
 if (comForm){
     comForm.addEventListener("submit",comFormHandler);
