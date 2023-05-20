@@ -53,6 +53,26 @@ router.post("/",(req,res)=>{
     });
 })
 
+// UPDATE ROUTE
+router.put("/:id",async (req,res)=>{
+    // TODO: add error catching
+    const { title, body } = req.body;
+    try {
+        const post = await Post.findByPk(req.params.id)
+        if (title) {
+            post.title = title;
+            post.save();
+        }
+        if (body) {
+            post.body = body;
+            post.save();
+        }
+        res.json(post);
+    } catch (err) {
+        console.error(err);
+    }
+})
+
 // DELETE ROUTE
 router.delete("/:id",(req,res)=>{
     Post.destroy({
