@@ -135,7 +135,9 @@ a {
     padding: 0 3%;
 }
 
-/* LOGIN STYLING */
+/**
+* LOGIN AND SIGNUP STYLING
+*/
 
 .box {
     width: 60%;
@@ -167,7 +169,8 @@ form.userform label {
     color: var(--secondary)
 }
 
-form.userform input {
+form.userform input,
+form#new-comment input {
     background-color: var(--secondary);
     border: 2px inset var(--secondary);
 }
@@ -178,7 +181,8 @@ form.userform p {
 }
 
 .box a,
-form.userform button {
+form.userform button,
+form#new-comment button {
     background-color: var(--accent);
     padding: 5px;
     margin: 10px;
@@ -190,19 +194,17 @@ form.userform button {
 }
 
 .box a:hover,
-form.userform button:hover {
+form.userform button:hover,
+form#new-comment button:hover {
     transition: .05s linear all;
     background-color: #B33819;
     border-color: #B33819;
 }
 
 .box a:active,
-form.userform button:active {
+form.userform button:active,
+form#new-comment button:active {
     border-style: inset;
-}
-
-textarea {
-    resize: none;
 }
 
 .alert.error {
@@ -227,63 +229,27 @@ textarea {
     }
 }
 
-/* SIGNUP STYLING */
+/**
+* DASHBOARD AND COMMENT FORM STYLING
+*/
 
-/* .box {
-    width: 60%;
+form#new-comment {
     align-self: center;
+    width: 70%;
     background-color: var(--main);
     display: flex;
-    flex-direction: column;
     align-items: center;
+    padding: 5px;
     border-radius: 5px;
 }
 
-form#signup {
-    width: 50%;
-    display: flex;
-    align-items: center;
-}
-
-form#signup label,
-form#signup input {
-    margin: 5px 0;
-}
-
-form#signup label {
-    color: var(--secondary)
-}
-
-form#signup input {
-    background-color: var(--secondary);
-    border: 2px inset var(--secondary);
-}
-
-form#signup p {
-    color: var(--accent);
-    text-shadow: 2px 2px 0 black;
-}
-
-.box a,
-form#signup button {
-    background-color: var(--accent);
+form#new-comment input,
+form#new-comment button {
+    width: 70%;
+    margin: 5px;
     padding: 5px;
-    margin: 10px;
-    border: 3px outset var(--accent);
-    border-radius: 3px;
-    font-size: 100%;
-    width: 200px;
-    text-align: center;
 }
 
-.box a:hover,
-form#signup button:hover {
-    transition: .05s linear all;
-    background-color: #B33819;
-    border-color: #B33819;
+textarea {
+    resize: none;
 }
-
-.box a:active,
-form#signup button:active {
-    border-style: inset;
-} */
