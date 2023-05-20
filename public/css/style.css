@@ -1,16 +1,27 @@
+:root {
+    --main: #2E294E;
+    --secondary: #EADEDA;
+    --accent: #C73E1D;
+}
+
+:focus {
+    outline: none;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* border: 1px solid black; */
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 body {
-    background-color: beige;
+    background-color: var(--secondary);
 }
 
 header {
-    background-color: darkgreen;
+    background-color: var(--main);
     display: flex;
     justify-content: space-between;
     height: 10vh;
@@ -18,6 +29,9 @@ header {
 
 header h1 {
     margin: 20px;
+    color: var(--secondary);
+    align-self: center;
+    text-decoration: underline var(--accent);
 }
 
 header nav {
@@ -27,6 +41,21 @@ header nav {
 
 header nav a {
     margin: auto 20px; 
+    color: var(--secondary);
+}
+
+header nav a:hover {
+    color: var(--accent);
+    transition: .1s ease all;
+}
+
+header nav a:focus {
+    border: none;
+    /* text-shadow: 3px 3px 0 var(--accent); */
+}
+
+header nav a:active {
+    transform: scale(98%);
 }
 
 main {
@@ -47,25 +76,54 @@ form {
 
 li {
     list-style: none;
-    border: 5px solid green;
+    border: 5px solid var(--main);
     margin: 10px;
-    background-color: gold;
+    background-color: var(--main);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px grey;
 }
 
 li section {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 3px;
-    color: white;
-    background-color: green;
+    color: var(--secondary);
+    /* background-color: green; */
+}
+
+li aside {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    padding: 0 0 3px 0;
 }
 
 li section p {
     font-style: italic;
 }
 
-li p {
+.date {
+    font-size: 70%;
+    padding: 1px;
+}
+
+li.post:hover {
+    transform: scale(102%);
+    transition: all ease .15s;
+}
+
+.title {
+    text-shadow: 2px 2px 0 black;
+}
+
+.body {
     padding: 3px;
+    text-indent: 30px;
+    background-color: var(--secondary);
+    border: 2px inset var(--secondary);
+    border-radius: 5px;
+    color: black;
 }
 
 a {
