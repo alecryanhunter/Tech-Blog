@@ -10,7 +10,7 @@ signup.addEventListener("submit", async function(event) {
     console.log(password)
 
     event.preventDefault();
-    const response = await fetch("/api/users/",{
+    await fetch("/api/users/",{
         method: "POST",
         body: JSON.stringify({
             name: name,
@@ -21,9 +21,18 @@ signup.addEventListener("submit", async function(event) {
         }
     });
 
-    if(response.ok) {
-        console.log("OK");
-    } else {
-        console.log("NOT OK");
+    const loginResponse = await fetch("/api/users/login",{
+        method: "POST",
+        body: JSON.stringify({
+            name: name,
+            password: password
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (loginResponse.ok){
+        window.location.href = "/dashboard"
     }
 });
