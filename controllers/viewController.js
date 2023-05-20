@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
+const sequelize = require("sequelize")
 
 // HOME PAGE
 router.get("/home",(req,res)=>{
@@ -46,8 +47,34 @@ router.get("/signup",(req,res)=>{
 router.get("/post/:id",(req,res)=>{
     console.log(req.params.id);
     Post.findByPk(req.params.id,{
+        attributes: {
+            include: [
+                // Formats the createdAt date field to MMM DD YYYY
+                [
+                    sequelize.fn(
+                        "DATE_FORMAT",
+                        sequelize.col("Post.createdAt"),
+                        "%M %d, %Y"
+                    ),
+                    "createdAt"
+                ]
+            ]
+        },
         include: [{
             model: Comment,
+            attributes: {
+            include: [
+                [
+                    // Formats the createdAt date field to MMM DD YYYY
+                    sequelize.fn(
+                        "DATE_FORMAT",
+                        sequelize.col("Post.createdAt"),
+                        "%M %d, %Y"
+                    ),
+                    "createdAt"
+                ]
+            ]
+        },
             include: User
         },User],
         required: true
