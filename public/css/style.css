@@ -170,7 +170,9 @@ form.userform label {
 }
 
 form.userform input,
-form#new-comment input {
+form#new-comment input,
+form#new-post input,
+form#new-post textarea {
     background-color: var(--secondary);
     border: 2px inset var(--secondary);
 }
@@ -182,7 +184,8 @@ form.userform p {
 
 .box a,
 form.userform button,
-form#new-comment button {
+form#new-comment button,
+form#new-post button {
     background-color: var(--accent);
     padding: 5px;
     margin: 10px;
@@ -195,7 +198,8 @@ form#new-comment button {
 
 .box a:hover,
 form.userform button:hover,
-form#new-comment button:hover {
+form#new-comment button:hover,
+form#new-post button:hover {
     transition: .05s linear all;
     background-color: #B33819;
     border-color: #B33819;
@@ -203,7 +207,8 @@ form#new-comment button:hover {
 
 .box a:active,
 form.userform button:active,
-form#new-comment button:active {
+form#new-comment button:active,
+form#new-post button:active {
     border-style: inset;
 }
 
@@ -233,7 +238,8 @@ form#new-comment button:active {
 * DASHBOARD AND COMMENT FORM STYLING
 */
 
-form#new-comment {
+form#new-comment,
+form#new-post {
     align-self: center;
     width: 70%;
     background-color: var(--main);
@@ -243,6 +249,10 @@ form#new-comment {
     border-radius: 5px;
 }
 
+form#new-post {
+    padding-top: 10px;
+}
+
 form#new-comment input,
 form#new-comment button {
     width: 70%;
@@ -250,6 +260,16 @@ form#new-comment button {
     padding: 5px;
 }
 
-textarea {
-    resize: none;
+form#new-post input{
+    font-size: 130%;
+    width: 60%;
+    text-align: center;
 }
+
+form#new-post textarea {
+    resize: none;
+    width: 60%;
+    margin-top: 3px;
+    text-align: center;
+}
+
