@@ -135,6 +135,11 @@ a {
     padding: 0 3%;
 }
 
+#btn-box {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 /**
 * LOGIN AND SIGNUP STYLING
 */
@@ -185,7 +190,8 @@ form.userform p {
 .box a,
 form.userform button,
 form#new-comment button,
-form#new-post button {
+form#new-post button,
+#btn-box button {
     background-color: var(--accent);
     padding: 5px;
     margin: 10px;
@@ -199,7 +205,8 @@ form#new-post button {
 .box a:hover,
 form.userform button:hover,
 form#new-comment button:hover,
-form#new-post button:hover {
+form#new-post button:hover,
+#btn-box button:hover {
     transition: .05s linear all;
     background-color: #B33819;
     border-color: #B33819;
@@ -208,7 +215,8 @@ form#new-post button:hover {
 .box a:active,
 form.userform button:active,
 form#new-comment button:active,
-form#new-post button:active {
+form#new-post button:active,
+#btn-box button:active {
     border-style: inset;
 }
 

@@ -109,7 +109,12 @@ router.get("/post/:id",(req,res)=>{
     })
     .then(gotPost=>{
         const post = gotPost.get({plain:true})
-        res.render("post",{post: post, cookie: req.session})
+        let currentUser
+        if (req.session.user_id === post.UserId) {
+            currentUser = true
+        }
+        // res.json({post: post, cookie: req.session})
+        res.render("post",{post: post, cookie: req.session, currentUser})
     })
 });
 

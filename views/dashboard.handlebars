@@ -1,4 +1,4 @@
-{{!-- For adding your own blog posts --}}
+{{!-- Shows your posts only --}}
 <ul>
     {{#each posts as |post|}}
         <a href="/post/{{post.id}}">
@@ -13,8 +13,6 @@
                 <p class="body">{{post.body}}</p>
             </li>
         </a>
-        {{!-- <button id="post-edit">Edit</button>
-        <button id="post-delete">Delete</button> --}}
     {{/each}}
 </ul>
 
