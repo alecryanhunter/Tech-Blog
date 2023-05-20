@@ -71,7 +71,7 @@ form {
 }
 
 /** 
-* HOME PAGE STYLING
+* POST AND COMMENT STYLING
 */
 
 li {
@@ -131,12 +131,78 @@ a {
     color: black
 }
 
-textarea {
-    resize: none;
-}
-
 .comments {
     padding: 0 3%;
+}
+
+/* LOGIN STYLING */
+
+.box {
+    width: 60%;
+    align-self: center;
+    background-color: var(--main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.box hr {
+    width: 30%;
+    color: var(--secondary);
+}
+
+form.userform {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+form.userform label,
+form.userform input {
+    margin: 5px 0;
+}
+
+form.userform label {
+    color: var(--secondary)
+}
+
+form.userform input {
+    background-color: var(--secondary);
+    border: 2px inset var(--secondary);
+}
+
+form.userform p {
+    color: var(--accent);
+    text-shadow: 2px 2px 0 black;
+}
+
+.box a,
+form.userform button {
+    background-color: var(--accent);
+    padding: 5px;
+    margin: 10px;
+    border: 3px outset var(--accent);
+    border-radius: 3px;
+    font-size: 100%;
+    width: 200px;
+    text-align: center;
+}
+
+.box a:hover,
+form.userform button:hover {
+    transition: .05s linear all;
+    background-color: #B33819;
+    border-color: #B33819;
+}
+
+.box a:active,
+form.userform button:active {
+    border-style: inset;
+}
+
+textarea {
+    resize: none;
 }
 
 .alert.error {
@@ -160,3 +226,64 @@ textarea {
         transform: translateX(-3px);
     }
 }
+
+/* SIGNUP STYLING */
+
+/* .box {
+    width: 60%;
+    align-self: center;
+    background-color: var(--main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+form#signup {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+form#signup label,
+form#signup input {
+    margin: 5px 0;
+}
+
+form#signup label {
+    color: var(--secondary)
+}
+
+form#signup input {
+    background-color: var(--secondary);
+    border: 2px inset var(--secondary);
+}
+
+form#signup p {
+    color: var(--accent);
+    text-shadow: 2px 2px 0 black;
+}
+
+.box a,
+form#signup button {
+    background-color: var(--accent);
+    padding: 5px;
+    margin: 10px;
+    border: 3px outset var(--accent);
+    border-radius: 3px;
+    font-size: 100%;
+    width: 200px;
+    text-align: center;
+}
+
+.box a:hover,
+form#signup button:hover {
+    transition: .05s linear all;
+    background-color: #B33819;
+    border-color: #B33819;
+}
+
+.box a:active,
+form#signup button:active {
+    border-style: inset;
+} */
