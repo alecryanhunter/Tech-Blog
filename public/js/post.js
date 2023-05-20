@@ -1,6 +1,6 @@
-console.log("Post Script Loaded...");
-
 const comForm = document.querySelector("#new-comment");
+// Grabs id from the URL, parsing int in case of queries
+const postId = parseInt(window.location.href.split("/").pop())
 
 if (comForm){
     comForm.addEventListener("submit",comFormHandler);
@@ -11,8 +11,6 @@ async function comFormHandler(event) {
 
     // Gets value from the form input
     const comment = comForm.children[0].value.trim()
-    // Grabs id from the URL, parsing int in case of queries
-    const postId = parseInt(window.location.href.split("/").pop())
 
     // First grabs the sessiondata
     await fetch("/sessiondata")
@@ -37,4 +35,22 @@ async function comFormHandler(event) {
     })
     
 
+}
+
+const editBtn = document.getElementById("edit");
+const deleteBtn = document.getElementById("delete");
+
+editBtn.addEventListener("click",editHandler);
+deleteBtn.addEventListener("click",deleteHandler);
+
+async function editHandler() {
+
+}
+
+// Very simple delete handler. Deletes then sends to home
+async function deleteHandler() {
+    await fetch(`/api/posts/${postId}`,{
+        method: "DELETE"
+    })
+    window.location.replace("/home");
 }
