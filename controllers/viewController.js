@@ -5,6 +5,19 @@ const sequelize = require("sequelize")
 // HOME PAGE
 router.get("/home",(req,res)=>{
     Post.findAll({
+        attributes: {
+            include: [
+                // Formats the createdAt date field to MMM DD YYYY
+                [
+                    sequelize.fn(
+                        "DATE_FORMAT",
+                        sequelize.col("Post.createdAt"),
+                        "%M %d, %Y"
+                    ),
+                    "createdAt"
+                ]
+            ]
+        },
         include: {
             model: User
         }
@@ -16,21 +29,36 @@ router.get("/home",(req,res)=>{
 })
 
 // DASHBOARD
-router.get("/dashboard",(req,res)=>{
+router.get("/dashboard",async (req,res)=>{
     // Redirects user to login if they aren't logged in
-    if (!req.session.logged_in){
+    if (req.session.logged_in == undefined){
         res.redirect("/login")
+    } else {
+        await Post.findAll({
+            where: {
+                UserId: req.session.user_id
+            },
+            attributes: {
+                include: [
+                    // Formats the createdAt date field to MMM DD YYYY
+                    [
+                        sequelize.fn(
+                            "DATE_FORMAT",
+                            sequelize.col("Post.createdAt"),
+                            "%M %d, %Y"
+                        ),
+                        "createdAt"
+                    ]
+                ]
+            },
+            include: User
+        })
+        .then(ownPosts=>{
+            const posts = ownPosts.map(post=>post.get({plain:true}))
+            // res.json({posts: posts, cookie: req.session});
+            res.render("dashboard",{posts: posts, cookie: req.session});
+        })
     }
-    Post.findAll({
-        where: {
-            UserId: req.session.user_id
-        },
-        include: User
-    })
-    .then(ownPosts=>{
-        const posts = ownPosts.map(post=>post.get({plain:true}))
-        res.render("dashboard",{posts: posts, cookie: req.session});
-    })
 });
 
 // LOGIN
